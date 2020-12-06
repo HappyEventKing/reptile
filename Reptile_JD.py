@@ -3,7 +3,7 @@ FilePath: \Source\Reptile_JD.py
 Author: Eventi
 Date: 2020-12-05 00:15:11
 LastEditors: Eventi
-LastEditTime: 2020-12-06 13:03:32
+LastEditTime: 2020-12-06 13:52:38
 Description:
 '''
 from logging import PercentStyle
@@ -54,7 +54,7 @@ def data_save(line):
             ws[xlsx_str] = data_line[key][xl_line]
             xlsx_line = xlsx_line + 1
             count = count+1
-    wb.save('../data/data.xlsx')
+    wb.save(r'd:/Reptile_JD/data/data.xlsx')
 
 '''
 description: 根据搜索结果的URL地址获取整个搜索结果商品的详情数据
@@ -62,8 +62,7 @@ param {*} search_url 传入搜索结果的url地址
 return {*}
 '''
 def getData(search_url):
-    browser = webdriver.Edge(r'c:/msedgedriver.exe')  # 使用浏览器驱动启动浏览器
-    print(search_url[8:15])
+    browser = webdriver.Edge(r'd:/Reptile_JD/driver/msedgedriver.exe')  # 使用浏览器驱动启动浏览器
     # if('search'==search_url[8:13]):#判断是否为全网搜索,如果为全网搜索则执行一下语句,否则为店内搜索,执行else以下的内容
     if 's' == (search_url[8]) and 'e' == search_url[9] and 'a' == search_url[10] and 'r' == search_url[11] and 'c' == search_url[12] and 'h' == search_url[13] and '.' == search_url[14]:
         browser.get(search_url)  # 打开搜索结果页面
